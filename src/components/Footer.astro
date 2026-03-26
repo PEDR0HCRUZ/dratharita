@@ -1,0 +1,91 @@
+---
+// ⚙ Confirmar dados com a cliente antes do deploy
+---
+
+<footer class="text-cream/40 py-20" style="background: var(--ink)">
+  <div class="max-w-7xl mx-auto px-8 md:px-12">
+
+    <div class="grid md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 pb-14 border-b border-cream/10">
+
+      <!-- Marca -->
+      <div>
+        <a href="/" class="font-display italic text-cream font-light text-2xl">
+          Dra. Tharita
+        </a>
+        <p class="text-[0.8rem] leading-relaxed mt-5 max-w-xs">
+          Harmonização Orofacial e Odontologia Estética em Florianópolis. Resultados naturais, elegantes, feitos sob medida para você.
+        </p>
+        <p class="text-[0.65rem] tracking-widest uppercase mt-4 text-cream/25">
+          CRO-SC XXXXX
+        </p>
+      </div>
+
+      <!-- Serviços -->
+      <div>
+        <p class="text-[0.65rem] tracking-[0.2em] uppercase text-cream/30 mb-5">Serviços</p>
+        <ul class="flex flex-col gap-3">
+          {['Harmonização Orofacial', 'Lentes de Contato Dental', 'Ortodontia para Adultos'].map((s) => (
+            <li>
+              <a href="#servicos" class="text-[0.82rem] link-underline hover:text-cream transition-colors duration-300">
+                {s}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Navegação -->
+      <div>
+        <p class="text-[0.65rem] tracking-[0.2em] uppercase text-cream/30 mb-5">Navegação</p>
+        <ul class="flex flex-col gap-3">
+          {[
+            { l: 'Sobre', h: '#sobre' },
+            { l: 'Resultados', h: '#resultados' },
+            { l: 'Depoimentos', h: '#depoimentos' },
+            { l: 'Agendar', h: '#agendar' },
+          ].map((item) => (
+            <li>
+              <a href={item.h} class="text-[0.82rem] link-underline hover:text-cream transition-colors duration-300">
+                {item.l}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contato -->
+      <div>
+        <p class="text-[0.65rem] tracking-[0.2em] uppercase text-cream/30 mb-5">Contato</p>
+        <ul class="flex flex-col gap-4 text-[0.8rem]">
+          <li>
+            <p class="text-cream/25 text-[0.6rem] tracking-widest uppercase mb-1">Endereço</p>
+            <p class="leading-relaxed">Rua XXXXXXX, XXX<br/>Florianópolis, SC</p>
+          </li>
+          <li>
+            <p class="text-cream/25 text-[0.6rem] tracking-widest uppercase mb-1">WhatsApp</p>
+            <a href="https://wa.me/5548999999999" target="_blank" class="link-underline hover:text-cream transition-colors duration-300">
+              (48) 9 9999-9999
+            </a>
+          </li>
+          <li>
+            <p class="text-cream/25 text-[0.6rem] tracking-widest uppercase mb-1">Instagram</p>
+            <a href="https://instagram.com" target="_blank" class="link-underline hover:text-cream transition-colors duration-300">
+              @dra.tharita
+            </a>
+          </li>
+          <li>
+            <p class="text-cream/25 text-[0.6rem] tracking-widest uppercase mb-1">Horário</p>
+            <p class="leading-relaxed">Seg–Sex: 8h–18h<br/>Sáb: 8h–12h</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-[0.68rem] tracking-wide">
+        © {new Date().getFullYear()} Clínica Dra. Tharita · Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,170 @@
+---
+---
+
+<section id="home" class="relative min-h-screen overflow-hidden flex flex-col">
+
+  <!-- Número decorativo -->
+  <div
+    class="hidden md:block absolute bottom-10 left-8 md:left-14 font-display text-[6rem] md:text-[10rem] leading-none select-none pointer-events-none font-light"
+    style="color: #D8D5E6"
+  >
+    01
+  </div>
+
+  <!-- Grid principal: texto | imagem -->
+  <div class="relative flex-1 max-w-7xl mx-auto w-full px-8 md:px-12 grid md:grid-cols-[1fr_45%] gap-10 md:gap-0 items-center pt-24 pb-16 md:pt-0">
+
+    <!-- ── Coluna esquerda: texto ── -->
+    <div class="flex flex-col justify-center gap-4 md:gap-[40px] md:pr-12 order-1">
+
+      <!-- Label -->
+      <div class="rule" data-reveal>
+        Harmonização · Ortodontia · Estética
+      </div>
+
+      <!-- Título + Subtítulo agrupados -->
+      <div class="flex flex-col gap-6" style="margin-top: -28px">
+        <div data-reveal style="transition-delay:0.08s">
+          <h1
+            class="font-display font-light text-ink"
+            style="font-size: clamp(2.1rem, 3.2vw, 3.5rem); line-height: 1.12; letter-spacing: -0.015em"
+          >
+            Realce sua beleza com <br/>
+            <em style="font-style: italic; color: var(--terra)">resultados naturais</em>
+          </h1>
+        </div>
+
+        <!-- Subtítulo -->
+        <p
+          class="text-[0.88rem] leading-relaxed max-w-[420px]"
+          style="color: var(--muted); transition-delay:0.16s"
+          data-reveal
+        >
+          Especialista em Harmonização Orofacial, Ortodontia e Estética Dental — diagnóstico facial completo e tratamentos feitos para valorizar quem você já é.
+        </p>
+      </div>
+
+      <!-- Diferenciais: 2 colunas compactas -->
+      <ul
+        class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mt-2 mb-6"
+        data-reveal
+        style="transition-delay:0.22s"
+      >
+        {[
+          'Resultados naturais',
+          'Planejamento facial completo',
+          'Atendimento humanizado',
+          'Tecnologia moderna',
+        ].map((d) => (
+          <li class="flex items-start gap-2 text-[0.875rem]" style="color: var(--charcoal)">
+            <span class="block w-1 h-1 rounded-full flex-shrink-0 mt-[0.55rem]" style="background: var(--terra)"></span>
+            {d}
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTA -->
+      <div class="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8" data-reveal style="transition-delay:0.3s">
+        <a href="#agendar" class="btn-cta">
+          <span class="btn-cta__icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+            </svg>
+          </span>
+          Agendar minha avaliação
+        </a>
+        <a href="#servicos" class="link-underline text-[0.75rem] tracking-[0.12em] uppercase" style="color: var(--muted)">
+          Ver serviços
+        </a>
+      </div>
+
+      <!-- Social proof -->
+      <div
+        class="flex items-center justify-center sm:justify-start gap-5 pt-5 border-t"
+        style="border-color: rgba(224,221,214,0.8)"
+        data-reveal
+        style="transition-delay:0.38s"
+      >
+        <div class="flex -space-x-2">
+          {['#D4C278','#C2B060','#B09848','#9E8638'].map((c) => (
+            <div class="w-7 h-7 rounded-full border-2 border-cream" style={`background:${c}`}></div>
+          ))}
+        </div>
+        <div>
+          <div class="flex gap-0.5 text-xs mb-0.5" style="color: var(--terra)">★★★★★</div>
+          <p class="text-[0.75rem] tracking-wide" style="color: var(--muted)">+500 pacientes atendidas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Coluna direita: imagem ── -->
+    <div
+      class="relative flex items-center justify-center md:justify-end order-2 md:pl-6"
+      data-reveal="right"
+      style="transition-delay:0.12s"
+    >
+      <div class="relative" style="width: min(380px, 100%)">
+
+        <!-- Imagem principal -->
+        <div class="image-frame">
+          <div class="overflow-hidden" style="aspect-ratio: 2/3;">
+            <img
+              src="/media/720ef66e-1dce-4a4e-b08b-d7f085d0b4c4.jpg"
+              alt="Dra. Tharita"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+        </div>
+
+        <!-- Badge flutuante: posição ajustada para não invadir a coluna de texto -->
+        <div
+          class="absolute left-0 md:-left-6 top-[38%] bg-cream border shadow-xl px-4 py-3"
+          style="border-color: var(--warm)"
+        >
+          <p class="font-display italic text-xl font-light leading-none" style="color: var(--terra)">13+</p>
+          <p class="text-[0.6rem] tracking-widest uppercase mt-1 leading-tight" style="color: var(--muted)">
+            anos de<br/>experiência
+          </p>
+        </div>
+
+        <!-- Detalhe vertical lateral -->
+        <div class="absolute -right-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3">
+          <div
+            class="text-[0.55rem] tracking-[0.28em] uppercase"
+            style="writing-mode: vertical-rl; transform: rotate(180deg); color: rgba(125,135,153,0.5)"
+          >
+            Florianópolis · SC
+          </div>
+          <div class="w-px h-12" style="background: var(--warm)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="relative flex justify-center pb-8" data-reveal style="transition-delay:0.55s">
+    <a
+      href="#problema"
+      class="flex flex-col items-center gap-1.5 group transition-colors duration-300"
+      style="color: var(--muted)"
+      onmouseover="this.style.color='var(--terra)'"
+      onmouseout="this.style.color='var(--muted)'"
+    >
+      <span class="text-[0.55rem] tracking-[0.22em] uppercase">scroll</span>
+      <div class="w-px h-7 overflow-hidden relative" style="background: var(--warm)">
+        <div class="absolute top-0 w-full h-full" style="background: var(--terra); animation: scrollLine 2s ease-in-out infinite"></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  @keyframes scrollLine {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    51%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+</style>
+

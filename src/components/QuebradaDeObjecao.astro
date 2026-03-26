@@ -1,0 +1,94 @@
+---
+---
+
+<section class="relative pt-32 md:pt-40 pb-16 md:pb-20" style="overflow-x: clip">
+
+  <!-- Texto decorativo — posicionado à direita, fora do conteúdo -->
+  <div
+    class="absolute right-0 bottom-0 pointer-events-none select-none leading-none"
+    aria-hidden="true"
+  >
+    <span
+      class="font-display font-light block"
+      style="font-size: clamp(5rem, 14vw, 13rem); color: #D8D5E6; letter-spacing: -0.03em; transform: translateX(25%) translateY(78%)"
+    >
+      Natural
+    </span>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-8 md:px-12">
+
+    <!-- Layout assimétrico: label + conteúdo + imagem -->
+    <div class="grid md:grid-cols-[200px_1fr_340px] gap-12 md:gap-16 items-start">
+
+      <!-- Coluna etiqueta -->
+      <div class="hidden md:flex flex-col items-start gap-6 pt-4" data-reveal="left">
+        <div class="rule">Sua maior dúvida</div>
+        <div class="w-px h-20 mt-2 ml-4" style="background: var(--warm)"></div>
+      </div>
+
+      <!-- Coluna conteúdo -->
+      <div>
+
+        <h2
+          class="font-display font-light mb-12"
+          style="font-size: clamp(1.7rem, 3.6vw, 3.1rem); line-height: 1.15; letter-spacing: -0.01em; color: var(--ink)"
+          data-reveal
+        >
+          Com medo de parecer que
+          <em style="font-style: italic; color: var(--terra)"> fez alguma coisa?</em>
+        </h2>
+
+        <div
+          class="grid md:grid-cols-2 gap-8 md:gap-12 text-[0.9rem] leading-relaxed mb-12"
+          style="color: var(--muted)"
+          data-reveal
+          style="transition-delay:0.15s"
+        >
+          <p>
+            Esse é o maior receio de quem pensa em cuidar da aparência — e é exatamente o que guia cada procedimento aqui.
+          </p>
+          <p>
+            O objetivo não é transformar. É revelar a melhor versão de você: mais descansada, mais confiante — sem excessos, sem artifícios.
+          </p>
+        </div>
+
+        <!-- Afirmação em destaque -->
+        <div
+          class="border-l-2 pl-6 mb-12" style="border-color: var(--terra)"
+          data-reveal
+          style="transition-delay:0.25s"
+        >
+          <p class="font-display italic text-xl md:text-2xl font-light leading-snug" style="color: var(--ink)">
+            "Naturalidade não é ausência de cuidado.<br/>
+            É o cuidado feito com precisão e sensibilidade."
+          </p>
+        </div>
+
+        <div data-reveal style="transition-delay:0.35s">
+          <a href="#agendar" class="btn-cta">
+            <span class="btn-cta__icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+              </svg>
+            </span>
+            Agendar minha avaliação
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna imagem -->
+      <div class="hidden md:block" data-reveal="right" style="transition-delay:0.2s">
+        <div class="image-frame">
+          <div class="overflow-hidden" style="aspect-ratio: 3/4;">
+            <img
+              src="/media/IMG_4887.JPG"
+              alt="Dra. Tharita"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,126 @@
+---
+const items = [
+  {
+    nome: 'Scanner Intraoral 3D',
+    desc: 'Diagnóstico de alta precisão para um planejamento verdadeiramente personalizado.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+      <path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+      <circle cx="12" cy="12" r="3"/><path d="M12 5v2"/><path d="M12 17v2"/>
+      <path d="M5 12H7"/><path d="M17 12h2"/>
+    </svg>`,
+  },
+  {
+    nome: 'Laser Terapêutico',
+    desc: 'Para clareamento e tratamentos com máximo conforto e eficácia comprovada.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2v4"/><path d="m15.5 4.5-2 2"/><path d="M20 12h-4"/><path d="m17.5 8.5-2 2"/>
+      <path d="m12 12 3 9"/><path d="M6.5 17.5 9 15"/><path d="M4 12H2"/><path d="m6.5 6.5 2 2"/>
+      <circle cx="12" cy="12" r="2"/>
+    </svg>`,
+  },
+  {
+    nome: 'Fototerapia',
+    desc: 'Recurso complementar que potencializa resultados e promove bem-estar.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/>
+      <path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/>
+      <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+    </svg>`,
+  },
+  {
+    nome: 'Materiais Premium',
+    desc: 'Alta qualidade e procedência certificada em absolutamente cada procedimento.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/>
+      <path d="M2 9h20"/>
+    </svg>`,
+  },
+];
+---
+
+<section class="relative bg-parchment pt-48 pb-32 md:py-40 overflow-hidden">
+
+  <!-- Número decorativo -->
+  <div class="absolute top-8 right-8 font-display text-[7rem] md:text-[11rem] leading-none select-none pointer-events-none font-light" style="color: #CCCAD8">
+    06
+  </div>
+
+  <div class="max-w-7xl mx-auto px-8 md:px-12">
+
+    <!-- Cabeçalho -->
+    <div class="grid md:grid-cols-[200px_1fr] gap-12 md:gap-20 mb-20">
+      <div data-reveal="left">
+        <div class="rule">Tecnologia & Qualidade</div>
+      </div>
+      <div data-reveal>
+        <h2
+          class="font-display font-light"
+          style="font-size: clamp(1.7rem, 3.2vw, 2.9rem); line-height: 1.1; max-width: 600px; color: var(--ink)"
+        >
+          Precisão e conforto em cada
+          <em style="font-style:italic; color: var(--terra)"> procedimento.</em>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Layout: grid equipamentos + coluna direita -->
+    <div class="grid md:grid-cols-[1fr_1fr] gap-16 md:gap-24 items-start">
+
+      <!-- Grid equipamentos sem fundo -->
+      <div class="grid grid-cols-2 gap-0" data-reveal>
+        {items.map((item, i) => (
+          <div
+            class={`flex flex-col gap-5 py-4 md:p-8 ${i % 2 === 0 ? 'pl-0 pr-3 md:pl-8 md:pr-8' : 'pr-0 pl-3 md:pl-8 md:pr-8'} group cursor-default`}
+            style={`
+              border-bottom: 1px solid rgba(201,168,60,0.18);
+              border-right: ${i % 2 === 0 ? '1px solid rgba(201,168,60,0.18)' : 'none'};
+              transition-delay:${i * 0.08}s
+            `}
+            data-reveal
+          >
+            <!-- Ícone -->
+            <span
+              class="transition-colors duration-300"
+              style="color: var(--terra); opacity: 0.6"
+              set:html={item.icon}
+            />
+            <div>
+              <h3 class="font-display font-light leading-tight mb-2" style="font-size: 1.05rem; color: var(--ink)">
+                {item.nome}
+              </h3>
+              <p class="text-[0.8rem] leading-relaxed" style="color: var(--muted)">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Coluna direita: texto + imagem -->
+      <div class="flex flex-col gap-10" data-reveal="right" style="transition-delay:0.15s">
+        <p class="text-[0.9rem] leading-relaxed" style="color: var(--muted)">
+          A clínica conta com tecnologia de ponta para garantir diagnósticos mais precisos, procedimentos mais seguros e uma experiência mais confortável para cada paciente.
+        </p>
+
+        <div class="image-frame">
+          <div class="overflow-hidden" style="aspect-ratio: 4/3;">
+            <img
+              src="/media/IMG_4864.JPG"
+              alt="Atendimento com tecnologia laser"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <!-- Detalhe tipográfico -->
+        <div class="pl-5" style="border-left: 2px solid var(--terra)">
+          <p class="font-display italic font-light leading-snug" style="color: var(--terra); font-size: 1.1rem">
+            "Cada detalhe pensado para oferecer a melhor experiência."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

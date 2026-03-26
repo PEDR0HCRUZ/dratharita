@@ -1,0 +1,110 @@
+---
+---
+
+<header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-700">
+  <div class="max-w-7xl mx-auto px-8 md:px-12 flex items-center justify-between h-20">
+
+    <!-- Logo -->
+    <a href="/" class="font-display text-[1.1rem] tracking-[0.12em] font-light italic" style="color: var(--ink)">
+      Dra. Tharita
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-10">
+      {[
+        { label: 'Serviços',    href: '#servicos' },
+        { label: 'Sobre',       href: '#sobre' },
+        { label: 'Resultados',  href: '#resultados' },
+        { label: 'Depoimentos', href: '#depoimentos' },
+      ].map((l) => (
+        <a
+          href={l.href}
+          class="link-underline text-[0.75rem] font-body tracking-[0.15em] uppercase transition-colors duration-300"
+          style="color: var(--charcoal)"
+        >
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTA -->
+    <a id="nav-cta" href="#agendar" class="hidden md:inline-flex items-center gap-2.5 text-[0.72rem] tracking-[0.15em] uppercase font-medium transition-colors duration-300" style="color: var(--terra); border-bottom: 1px solid var(--terra); padding-bottom: 2px; overflow: hidden">
+      Agendar avaliação
+      <span style="display:inline-flex; overflow:hidden; width:14px; height:14px; flex-shrink:0">
+        <svg id="nav-cta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </span>
+    </a>
+
+    <!-- Mobile toggle -->
+    <button id="nav-toggle" aria-label="Menu" class="md:hidden flex flex-col gap-[5px] p-2">
+      <span id="l1" class="block w-6 h-px transition-all duration-300 origin-center" style="background: var(--ink)"></span>
+      <span id="l2" class="block w-4 h-px transition-all duration-300 ml-auto" style="background: var(--ink)"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-nav" class="hidden md:hidden px-8 pb-8 pt-6" style="background: var(--cream); border-top: 1px solid var(--warm)">
+    {[
+      { label: 'Serviços',    href: '#servicos' },
+      { label: 'Sobre',       href: '#sobre' },
+      { label: 'Resultados',  href: '#resultados' },
+      { label: 'Depoimentos', href: '#depoimentos' },
+    ].map((l) => (
+      <a href={l.href} data-close class="block py-4 border-b text-[0.75rem] tracking-[0.15em] uppercase" style="border-color: rgba(224,221,214,0.6); color: var(--charcoal)">
+        {l.label}
+      </a>
+    ))}
+    <a href="#agendar" data-close class="mt-6 btn-cta">
+      <span class="btn-cta__icon">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+        </svg>
+      </span>
+      Agendar avaliação
+    </a>
+  </div>
+</header>
+
+<script>
+  const nav    = document.getElementById('site-nav')!;
+  const toggle = document.getElementById('nav-toggle')!;
+  const menu   = document.getElementById('mobile-nav')!;
+  const l1     = document.getElementById('l1')!;
+  const l2     = document.getElementById('l2')!;
+
+  let isOpen = false;
+
+  // Scroll bg
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(245,243,239,0.95)';
+      nav.style.backdropFilter = 'blur(12px)';
+      nav.style.boxShadow = '0 1px 0 rgba(16,28,58,0.06)';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.boxShadow = 'none';
+    }
+  });
+
+  // Mobile toggle
+  toggle.addEventListener('click', () => {
+    isOpen = !isOpen;
+    menu.classList.toggle('hidden', !isOpen);
+    l1.style.transform = isOpen ? 'rotate(45deg) translate(4px, 4px)' : '';
+    l2.style.transform = isOpen ? 'rotate(-45deg) translate(3px, -3px)' : '';
+    l2.style.width     = isOpen ? '1.5rem' : '';
+  });
+
+  document.querySelectorAll('[data-close]').forEach((el) =>
+    el.addEventListener('click', () => {
+      isOpen = false;
+      menu.classList.add('hidden');
+      l1.style.transform = '';
+      l2.style.transform = '';
+      l2.style.width = '';
+    })
+  );
+</script>

@@ -1,0 +1,120 @@
+---
+const stats = [
+  { valor: '13+',  num: 13,  suffix: '+', label: 'anos de\nexperiência' },
+  { valor: '500+', num: 500, suffix: '+', label: 'pacientes\natendidas' },
+  { valor: '25+',  num: 25,  suffix: '+', label: 'cursos e\nimersões' },
+  { valor: '3',    num: 3,   suffix: '',  label: 'especialidades\nintegradas' },
+];
+
+const destaques = [
+  'Naturalidade dos procedimentos',
+  'Resultados sutis e elegantes',
+  'Delicadeza e cuidado durante o atendimento',
+  'Ambiente acolhedor e humanizado',
+];
+---
+
+<section id="resultados" class="relative bg-parchment py-32 md:py-40 overflow-hidden">
+
+  <!-- Textura de fundo: texto grande vertical -->
+  <div
+    class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 font-display font-light text-[12rem] leading-none select-none pointer-events-none"
+    style="writing-mode: vertical-rl; color: #CCCAD8"
+  >
+    Resultados
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-8 md:px-12">
+
+    <!-- Rule -->
+    <div class="mb-20" data-reveal>
+      <div class="rule" style="color: var(--clay)">
+        <span style="background: var(--clay)"></span>
+        Resultados & Experiência
+      </div>
+    </div>
+
+    <!-- Frase editorial grande -->
+    <div class="mb-20" data-reveal style="margin-top: -28px">
+      <h2
+        class="font-display font-light"
+        style="font-size: clamp(1.7rem, 3.2vw, 3.2rem); line-height: 1.05; letter-spacing: -0.01em; max-width: 900px; color: var(--ink)"
+      >
+        Resultados elegantes.<br/>
+        <em style="font-style:italic; color: var(--terra)">Naturalidade</em> que você sente.
+      </h2>
+    </div>
+
+    <!-- Stats: linha horizontal com separadores -->
+    <div class="grid grid-cols-2 md:grid-cols-4 mb-24" style="border-top: 1px solid rgba(201,168,60,0.3); transition-delay:0.15s" data-reveal>
+      {stats.map((s, i) => (
+        <div
+          class={`py-10 flex flex-col gap-2 px-6 md:px-10 first:pl-0`}
+          style={i > 0 ? 'border-left: 1px solid rgba(201,168,60,0.2)' : ''}
+        >
+          <span
+            class="font-display font-light"
+            style={`font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1; letter-spacing: -0.02em; color: var(--terra)`}
+            data-counter={s.num}
+            data-suffix={s.suffix}
+          >
+            {s.valor}
+          </span>
+          <span class="text-[0.7rem] tracking-[0.15em] uppercase leading-relaxed whitespace-pre-line" style="color: var(--charcoal)">
+            {s.label}
+          </span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Destaques + imagem grid -->
+    <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+
+      <div data-reveal>
+        <p class="text-[0.88rem] leading-relaxed mb-10" style="color: var(--muted)">
+          Cada detalhe é pensado para que o resultado seja bonito, sutil e, acima de tudo, seu. É o que as pacientes sempre destacam:
+        </p>
+        <div class="flex flex-col gap-4">
+          {destaques.map((d, i) => (
+            <div
+              class="flex items-center gap-4 py-4 border-b"
+              style={`border-color: var(--warm); transition-delay:${0.2 + i * 0.08}s`}
+              data-reveal
+            >
+              <span class="font-display text-sm font-light" style="color: rgba(168,136,40,0.6)">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span class="text-[0.88rem]" style="color: var(--ink)">{d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Grid de imagens -->
+      <div class="flex gap-3" style="aspect-ratio: 1/1; transition-delay:0.2s" data-reveal="right">
+        <!-- Coluna esquerda -->
+        <div class="flex flex-col gap-3 flex-1 min-h-0">
+          <div class="flex-1 min-h-0 overflow-hidden relative">
+            <img src="/media/IMG_4862.JPG" alt="Harmonização Orofacial" class="w-full h-full object-cover" />
+            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">harmonização</span>
+          </div>
+          <div class="flex-1 min-h-0 overflow-hidden relative">
+            <img src="/media/IMG_4881.JPG" alt="Ortodontia" class="w-full h-full object-cover" />
+            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">ortodontia</span>
+          </div>
+        </div>
+        <!-- Coluna direita -->
+        <div class="flex flex-col gap-3 flex-1 min-h-0">
+          <div class="flex-[3] min-h-0 overflow-hidden relative">
+            <img src="/media/f8473fa5-86de-4ed1-8b1d-e4747e4c4346.jpg" alt="Sorriso natural" class="w-full h-full object-cover object-top" />
+            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">sorriso</span>
+          </div>
+          <div class="flex-[2] min-h-0 overflow-hidden relative">
+            <img src="/media/IMG_4895.JPG" alt="Estética Dental" class="w-full h-full object-cover object-top" />
+            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">estética</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
