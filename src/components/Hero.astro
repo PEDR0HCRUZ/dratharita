@@ -12,7 +12,7 @@
   </div>
 
   <!-- Grid principal: texto | imagem -->
-  <div class="relative flex-1 max-w-7xl mx-auto w-full px-8 md:px-12 grid md:grid-cols-[1fr_45%] gap-10 md:gap-0 items-center pt-24 pb-16 md:pt-0">
+  <div class="relative flex-1 max-w-7xl mx-auto w-full px-8 md:px-12 grid md:grid-cols-[1fr_45%] gap-10 md:gap-0 items-center pt-24 pb-16 md:pt-20">
 
     <!-- ── Coluna esquerda: texto ── -->
     <div class="flex flex-col justify-center gap-4 md:gap-[40px] md:pr-12 order-1">
@@ -23,7 +23,7 @@
       </div>
 
       <!-- Título + Subtítulo agrupados -->
-      <div class="flex flex-col gap-6" style="margin-top: -28px">
+      <div class="flex flex-col gap-6 md:-mt-7">
         <div data-reveal style="transition-delay:0.08s">
           <h1
             class="font-display font-light text-ink"
@@ -86,8 +86,18 @@
         style="transition-delay:0.38s"
       >
         <div class="flex -space-x-2">
-          {['#D4C278','#C2B060','#B09848','#9E8638'].map((c) => (
-            <div class="w-7 h-7 rounded-full border-2 border-cream" style={`background:${c}`}></div>
+          {[
+            '/media/alunas/girl-with-charming-dimples-smiles-woman-trendy-resort-shirt-pants-posing-relaxed-brick-space-with-bushes.webp',
+            '/media/alunas/beautiful-african-female-florist-smiling-holding-flowers-white-wall.webp',
+            '/media/alunas/side-view-woman-posing-nature (1).webp',
+            '/media/alunas/woman-holding-houseplant-paper-bag.webp',
+          ].map((src, i) => (
+            <img
+              src={src}
+              alt="Paciente atendida"
+              class="w-8 h-8 rounded-full border-2 object-cover object-top avatar-fade"
+              style={`border-color: var(--cream); animation-delay: ${0.4 + i * 0.1}s`}
+            />
           ))}
         </div>
         <div>
@@ -99,7 +109,7 @@
 
     <!-- ── Coluna direita: imagem ── -->
     <div
-      class="relative flex items-center justify-center md:justify-end order-2 md:pl-6"
+      class="hero-img-col relative flex items-center justify-center md:justify-end order-2 md:pl-6"
       data-reveal="right"
       style="transition-delay:0.12s"
     >
@@ -109,7 +119,7 @@
         <div class="image-frame">
           <div class="overflow-hidden" style="aspect-ratio: 2/3;">
             <img
-              src="/media/720ef66e-1dce-4a4e-b08b-d7f085d0b4c4.jpg"
+              src="/media/720ef66e-1dce-4a4e-b08b-d7f085d0b4c4.webp"
               alt="Dra. Tharita"
               class="w-full h-full object-cover object-top"
             />
@@ -159,6 +169,15 @@
 </section>
 
 <style>
+  @keyframes avatarFade {
+    from { opacity: 0; transform: translateX(-6px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .avatar-fade {
+    animation: avatarFade 0.4s ease forwards;
+    animation-fill-mode: backwards;
+  }
+
   @keyframes scrollLine {
     0%   { transform: scaleY(0); transform-origin: top; }
     50%  { transform: scaleY(1); transform-origin: top; }

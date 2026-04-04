@@ -56,6 +56,15 @@ body::after {
 /* ── Typography ───────────────────────────────────────── */
 .font-display { font-family: 'Playfair Display', Georgia, serif; }
 
+/* ── Hero: sem animação de reveal na imagem no mobile ─── */
+@media (max-width: 767px) {
+  .hero-img-col[data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ── Reveal animations ────────────────────────────────── */
 [data-reveal] {
   opacity: 0;
