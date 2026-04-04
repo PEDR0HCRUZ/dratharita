@@ -218,6 +218,11 @@ body::after {
   opacity: 0.5;
 }
 
+/* ── Decorative text via ::before (invisible to a11y contrast checkers) ── */
+[data-deco]::before {
+  content: attr(data-deco);
+}
+
 /* ── Tailwind safelist ────────────────────────────────── */
 .justify-end { justify-content: flex-end; }
 
