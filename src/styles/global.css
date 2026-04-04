@@ -1,5 +1,4 @@
-/* ── Fonts ────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+/* ── Fonts (loaded via <link> in Layout.astro for non-blocking) ── */
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +14,7 @@
   --rust:       #7A6018;
   --ink:        #101C3A;
   --charcoal:   #1D2F62;
-  --muted:      #7D8799;
+  --muted:      #596070;
   --blush:      #ECD87E;
 
   --espresso:   #253A80;
@@ -123,7 +122,7 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--terra);
+  color: var(--rust);
   font-family: 'Montserrat', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
