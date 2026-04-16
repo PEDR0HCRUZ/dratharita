@@ -6,6 +6,7 @@ import Problema from '../components/Problema.astro';
 import Servicos from '../components/Servicos.astro';
 import Sobre from '../components/Sobre.astro';
 import Resultados from '../components/Resultados.astro';
+import AntesDepois from '../components/AntesDepois.astro';
 import Tecnologia from '../components/Tecnologia.astro';
 import Beneficios from '../components/Beneficios.astro';
 import QuebradaDeObjecao from '../components/QuebradaDeObjecao.astro';
@@ -22,6 +23,7 @@ import Footer from '../components/Footer.astro';
     <Servicos />
     <Sobre />
     <Resultados />
+    <AntesDepois />
     <Tecnologia />
     <Beneficios />
     <QuebradaDeObjecao />
@@ -97,6 +99,7 @@ import Footer from '../components/Footer.astro';
         if (!entry.isIntersecting) return;
         const el = entry.target as HTMLElement;
         const target = parseInt(el.dataset.counter || '0', 10);
+        const prefix = el.dataset.prefix || '';
         const suffix = el.dataset.suffix || '';
         counterIo.unobserve(el);
         const obj = { val: 0 };
@@ -105,7 +108,7 @@ import Footer from '../components/Footer.astro';
           duration: 1.8,
           ease: 'power2.out',
           onUpdate() {
-            el.textContent = Math.round(obj.val) + suffix;
+            el.textContent = prefix + Math.round(obj.val) + suffix;
           },
         });
       });

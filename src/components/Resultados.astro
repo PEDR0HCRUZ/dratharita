@@ -1,9 +1,9 @@
 ---
 const stats = [
-  { valor: '13+',  num: 13,  suffix: '+', label: 'anos de\nexperiência' },
-  { valor: '500+', num: 500, suffix: '+', label: 'pacientes\natendidas' },
-  { valor: '25+',  num: 25,  suffix: '+', label: 'cursos e\nimersões' },
-  { valor: '3',    num: 3,   suffix: '',  label: 'especialidades\nintegradas' },
+  { valor: '+15',    num: 15, prefix: '+', suffix: '',    label: 'anos de\nexperiência' },
+  { valor: '+5mil',  num: 5,  prefix: '+', suffix: 'mil', label: 'pacientes\natendidas' },
+  { valor: '+15mil', num: 15, prefix: '+', suffix: 'mil', label: 'procedimentos\nrealizados' },
+  { valor: '3',      num: 3,  prefix: '',  suffix: '',    label: 'especialidades\nintegradas' },
 ];
 
 const destaques = [
@@ -56,6 +56,7 @@ const destaques = [
             class="font-display font-light"
             style={`font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1; letter-spacing: -0.02em; color: var(--terra)`}
             data-counter={s.num}
+            data-prefix={s.prefix}
             data-suffix={s.suffix}
           >
             {s.valor}

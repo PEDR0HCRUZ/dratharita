@@ -3,10 +3,11 @@ const servicos = [
   {
     num: '01',
     nome: 'Harmonização\nOrofacial',
-    desc: 'Suavize sinais de cansaço e flacidez, e harmonize os traços do rosto com precisão e leveza — para que você se sinta mais bonita sem deixar de ser você.',
+    desc: 'Além de Toxina Botulínica, Preenchedores e Bioestimuladores de Colágeno, sou especialista em Estética Regenerativa da Face e Pescoço — a abordagem mais moderna da medicina estética. Diferente de apenas preencher, a estética regenerativa trata a pele de dentro para fora, devolvendo saúde, firmeza e um aspecto mais natural ao rosto. Utilizo técnicas que estimulam a bioestimulação tecidual, promovendo regeneração celular e melhora global da qualidade da pele.',
     tag: 'Resultado que ninguém percebe, mas todos notam.',
-    img: '/media/IMG_4865.webp',
+    img: '/media/86EFBD6B-5546-40EF-99CC-FE8A773B4044_1_105_c.webp',
     imgAlt: 'Harmonização Orofacial',
+    imgPos: 'center 25%',
   },
   {
     num: '02',
@@ -84,6 +85,7 @@ const servicos = [
                 src={s.img}
                 alt={s.imgAlt}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                style={s.imgPos ? `object-position: ${s.imgPos}` : ''}
               />
             </div>
             <p class="font-display italic text-sm font-light leading-snug" style="color: var(--terra)">

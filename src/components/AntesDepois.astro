@@ -1,0 +1,134 @@
+---
+const casos = [
+  {
+    num: '01',
+    titulo: 'Botox + Alinhadores + Clareamento + Facetas de Resina',
+    descricao: 'Planejamento completo integrando harmonização facial com Toxina Botulínica, alinhamento ortodôntico com alinhadores, clareamento dental e facetas de resina — resultado natural e harmonioso do rosto ao sorriso.',
+    tags: ['Botox', 'Alinhadores', 'Clareamento', 'Facetas de Resina'],
+    antes: '/media/antes-depois/botox-antes.webp',
+    depois: '/media/antes-depois/botox-depois.webp',
+    imgPos: 'center 70%',
+  },
+  {
+    num: '02',
+    titulo: 'Preenchimento Full Face + Fios de Tração',
+    descricao: 'Protocolo de estética regenerativa com preenchimento facial completo e fios de tração — reposição de volume, remodelamento dos contornos e rejuvenescimento natural sem cirurgia.',
+    tags: ['Preenchimento Full Face', 'Fios de Tração', 'Estética Regenerativa'],
+    antes: '/media/antes-depois/preenchimento-antes.webp',
+    depois: '/media/antes-depois/preenchimento-depois.webp',
+  },
+  {
+    num: '03',
+    titulo: 'Lentes de Contato Porcelana',
+    descricao: 'Transformação do sorriso com lentes de contato em porcelana — dentes mais brancos, alinhados e harmônicos, preservando a estrutura dental e o aspecto natural do sorriso.',
+    tags: ['Lentes de Contato', 'Porcelana', 'Estética Dental'],
+    antes: '/media/antes-depois/lentes-antes.webp',
+    depois: '/media/antes-depois/lentes-depois.webp',
+  },
+];
+---
+
+<section id="antes-depois" class="relative py-32 md:py-40 overflow-hidden" style="background: var(--ink)">
+
+  <!-- Número decorativo -->
+  <div
+    aria-hidden="true"
+    data-deco="05"
+    class="absolute top-8 left-8 font-display text-[7rem] md:text-[11rem] leading-none select-none pointer-events-none font-light"
+    style="color: #182448"
+  ></div>
+
+  <div class="max-w-7xl mx-auto px-8 md:px-12">
+
+    <!-- Cabeçalho -->
+    <div class="grid md:grid-cols-[200px_1fr] gap-4 md:gap-20 mb-20">
+      <div data-reveal="left">
+        <div class="rule" style="color: var(--clay)">Casos Reais</div>
+      </div>
+      <div data-reveal>
+        <h2
+          class="font-display font-light"
+          style="font-size: clamp(1.7rem, 3.2vw, 2.9rem); line-height: 1.1; max-width: 680px; color: #ffffff; font-weight: 300"
+        >
+          Transformações reais —<br/>
+          <em style="font-style:italic; color: var(--clay)">antes e depois.</em>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Casos -->
+    <div class="flex flex-col gap-24">
+      {casos.map((caso, i) => (
+        <div
+          class="grid md:grid-cols-2 gap-10 md:gap-16 items-start"
+          data-reveal
+          style={`transition-delay:${i * 0.1}s`}
+        >
+
+          <!-- Imagens antes/depois -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex flex-col gap-2">
+              <div class="overflow-hidden" style="aspect-ratio: 3/4;">
+                <img
+                  src={caso.antes}
+                  alt={`Antes — ${caso.titulo}`}
+                  class="w-full h-full object-cover"
+                  style={caso.imgPos ? `object-position: ${caso.imgPos}` : 'object-position: center top'}
+                />
+              </div>
+              <p class="text-[0.62rem] tracking-[0.18em] uppercase text-center" style="color: rgba(245,243,239,0.35)">Antes</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <div class="overflow-hidden" style="aspect-ratio: 3/4;">
+                <img
+                  src={caso.depois}
+                  alt={`Depois — ${caso.titulo}`}
+                  class="w-full h-full object-cover"
+                  style={caso.imgPos ? `object-position: ${caso.imgPos}` : 'object-position: center top'}
+                />
+              </div>
+              <p class="text-[0.62rem] tracking-[0.18em] uppercase text-center" style="color: rgba(245,243,239,0.35)">Depois</p>
+            </div>
+          </div>
+
+          <!-- Texto do caso -->
+          <div class="flex flex-col justify-center gap-6 md:py-4">
+            <span class="font-display text-[3rem] font-light leading-none" style="color: rgba(201,168,60,0.2)">{caso.num}</span>
+            <h3
+              class="font-display font-light"
+              style="font-size: clamp(1.3rem, 2.2vw, 2rem); line-height: 1.15; color: #ffffff"
+            >
+              {caso.titulo}
+            </h3>
+            <p class="text-[0.88rem] leading-relaxed" style="color: rgba(245,243,239,0.7)">
+              {caso.descricao}
+            </p>
+            <div class="flex flex-wrap gap-2 mt-2">
+              {caso.tags.map((tag) => (
+                <span
+                  class="text-[0.62rem] tracking-[0.14em] uppercase px-3 py-1.5"
+                  style="color: var(--clay); border: 1px solid rgba(201,168,60,0.3)"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-20 flex" data-reveal>
+      <a href="#agendar" class="btn-cta btn-cta--light">
+        <span class="btn-cta__icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+          </svg>
+        </span>
+        Agendar minha avaliação
+      </a>
+    </div>
+  </div>
+</section>
