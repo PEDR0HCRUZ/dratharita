@@ -25,10 +25,27 @@ const casos = [
     antes: '/media/antes-depois/lentes-antes.webp',
     depois: '/media/antes-depois/lentes-depois.webp',
   },
+  {
+    num: '04',
+    titulo: 'Botox + Estética Regenerativa de Pele',
+    descricao: 'Combinação de Toxina Botulínica com protocolo de estética regenerativa de pele — suavização de linhas de expressão e melhora da qualidade da pele com resultado natural e duradouro.',
+    tags: ['Botox', 'Estética Regenerativa', 'Rejuvenescimento'],
+    antes: '/media/antes-depois/botox + estética regenerativa pele 2 1.webp',
+    depois: '/media/antes-depois/botox + estética regenerativa pele 2 2.webp',
+    imgPos: 'center 20%',
+  },
+  {
+    num: '05',
+    titulo: 'Clareamento Dental',
+    descricao: 'Clareamento dental com protocolo de consultório — resultado visivelmente mais branco e uniforme, respeitando a tonalidade natural do sorriso de cada paciente.',
+    tags: ['Clareamento Dental', 'Estética Dental'],
+    antes: '/media/antes-depois/clareamento antes e depois 1.webp',
+    depois: '/media/antes-depois/clareamento antes e depois 2.webp',
+  },
 ];
 ---
 
-<section id="antes-depois" class="relative py-32 md:py-40 overflow-hidden" style="background: var(--ink)">
+<section id="antes-depois" class="relative pt-48 pb-32 md:py-40 overflow-hidden" style="background: var(--ink)">
 
   <!-- Número decorativo -->
   <div
@@ -60,13 +77,24 @@ const casos = [
     <div class="flex flex-col gap-24">
       {casos.map((caso, i) => (
         <div
-          class="grid md:grid-cols-2 gap-10 md:gap-16 items-start"
+          class="grid md:grid-cols-2 gap-6 md:gap-x-16 md:gap-y-6 items-start"
           data-reveal
           style={`transition-delay:${i * 0.1}s`}
         >
 
-          <!-- Imagens antes/depois -->
-          <div class="grid grid-cols-2 gap-3">
+          <!-- Num + Título: acima das imagens no mobile; col direita row 1 no desktop -->
+          <div class="order-1 md:col-start-2 md:row-start-1 flex flex-col gap-3 md:pt-4">
+            <span class="font-display text-[3rem] font-light leading-none" style="color: rgba(201,168,60,0.2)">{caso.num}</span>
+            <h3
+              class="font-display font-light"
+              style="font-size: clamp(1.3rem, 2.2vw, 2rem); line-height: 1.15; color: #ffffff"
+            >
+              {caso.titulo}
+            </h3>
+          </div>
+
+          <!-- Imagens: order-2 mobile; col esquerda span 2 linhas no desktop -->
+          <div class="order-2 md:col-start-1 md:row-start-1 md:row-span-2 grid grid-cols-2 gap-3">
             <div class="flex flex-col gap-2">
               <div class="overflow-hidden" style="aspect-ratio: 3/4;">
                 <img
@@ -78,7 +106,6 @@ const casos = [
               </div>
               <p class="text-[0.62rem] tracking-[0.18em] uppercase text-center" style="color: rgba(245,243,239,0.35)">Antes</p>
             </div>
-
             <div class="flex flex-col gap-2">
               <div class="overflow-hidden" style="aspect-ratio: 3/4;">
                 <img
@@ -92,19 +119,12 @@ const casos = [
             </div>
           </div>
 
-          <!-- Texto do caso -->
-          <div class="flex flex-col justify-center gap-6 md:py-4">
-            <span class="font-display text-[3rem] font-light leading-none" style="color: rgba(201,168,60,0.2)">{caso.num}</span>
-            <h3
-              class="font-display font-light"
-              style="font-size: clamp(1.3rem, 2.2vw, 2rem); line-height: 1.15; color: #ffffff"
-            >
-              {caso.titulo}
-            </h3>
+          <!-- Desc + Tags: abaixo das imagens no mobile; col direita row 2 no desktop -->
+          <div class="order-3 md:col-start-2 md:row-start-2 flex flex-col gap-5">
             <p class="text-[0.88rem] leading-relaxed" style="color: rgba(245,243,239,0.7)">
               {caso.descricao}
             </p>
-            <div class="flex flex-wrap gap-2 mt-2">
+            <div class="flex flex-wrap gap-2">
               {caso.tags.map((tag) => (
                 <span
                   class="text-[0.62rem] tracking-[0.14em] uppercase px-3 py-1.5"

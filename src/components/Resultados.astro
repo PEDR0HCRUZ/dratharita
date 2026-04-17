@@ -1,6 +1,6 @@
 ---
 const stats = [
-  { valor: '+15',    num: 15, prefix: '+', suffix: '',    label: 'anos de\nexperiência' },
+  { valor: '+15 anos', num: 15, prefix: '+', suffix: ' anos', label: 'de\nexperiência' },
   { valor: '+5mil',  num: 5,  prefix: '+', suffix: 'mil', label: 'pacientes\natendidas' },
   { valor: '+15mil', num: 15, prefix: '+', suffix: 'mil', label: 'procedimentos\nrealizados' },
   { valor: '3',      num: 3,  prefix: '',  suffix: '',    label: 'especialidades\nintegradas' },
@@ -49,8 +49,12 @@ const destaques = [
     <div class="grid grid-cols-2 md:grid-cols-4 mb-24" style="border-top: 1px solid rgba(201,168,60,0.3); transition-delay:0.15s" data-reveal>
       {stats.map((s, i) => (
         <div
-          class={`py-10 flex flex-col gap-2 px-6 md:px-10 first:pl-0`}
-          style={i > 0 ? 'border-left: 1px solid rgba(201,168,60,0.2)' : ''}
+          class={`py-10 flex flex-col gap-2 px-6 md:px-10 first:pl-0 ${
+            i === 2 ? 'pl-0' : ''
+          } ${
+            i === 1 || i === 3 ? 'border-l' : i === 2 ? 'md:border-l' : ''
+          }`}
+          style={i > 0 ? 'border-left-color: rgba(201,168,60,0.2)' : ''}
         >
           <span
             class="font-display font-light"
@@ -95,23 +99,23 @@ const destaques = [
       <div class="flex gap-3" style="aspect-ratio: 1/1; transition-delay:0.2s" data-reveal="right">
         <!-- Coluna esquerda -->
         <div class="flex flex-col gap-3 flex-1 min-h-0">
-          <div class="flex-1 min-h-0 overflow-hidden relative">
-            <img src="/media/IMG_4862.webp" alt="Harmonização Orofacial" class="w-full h-full object-cover" />
-            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">harmonização</span>
+          <div class="flex-1 min-h-0 overflow-hidden relative group cursor-zoom-in" data-lightbox="/media/preenchimentolabial antes e depois.webp" data-lightbox-caption="Preenchimento Labial">
+            <img src="/media/preenchimentolabial antes e depois.webp" alt="Preenchimento Labial" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">preenchimento labial</span>
           </div>
-          <div class="flex-1 min-h-0 overflow-hidden relative">
-            <img src="/media/IMG_4881.webp" alt="Ortodontia" class="w-full h-full object-cover" />
-            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">ortodontia</span>
+          <div class="flex-1 min-h-0 overflow-hidden relative group cursor-zoom-in" data-lightbox="/media/botox full face, preenchimento facial e labial.webp" data-lightbox-caption="Botox e Preenchimento">
+            <img src="/media/botox full face, preenchimento facial e labial.webp" alt="Botox e Preenchimento" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">botox e preenchimento</span>
           </div>
         </div>
         <!-- Coluna direita -->
         <div class="flex flex-col gap-3 flex-1 min-h-0">
-          <div class="flex-[3] min-h-0 overflow-hidden relative">
-            <img src="/media/f8473fa5-86de-4ed1-8b1d-e4747e4c4346.webp" alt="Sorriso natural" class="w-full h-full object-cover object-top" />
-            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">sorriso</span>
+          <div class="flex-[3] min-h-0 overflow-hidden relative group cursor-zoom-in" data-lightbox="/media/lentes, botox e preenchimento.webp" data-lightbox-caption="Lentes, Botox e Preenchimento">
+            <img src="/media/lentes, botox e preenchimento.webp" alt="Lentes, Botox e Preenchimento" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+            <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">lentes, botox e preenchimento</span>
           </div>
-          <div class="flex-[2] min-h-0 overflow-hidden relative">
-            <img src="/media/IMG_4895.webp" alt="Estética Dental" class="w-full h-full object-cover object-top" />
+          <div class="flex-[2] min-h-0 overflow-hidden relative group cursor-zoom-in" data-lightbox="/media/IMG_4895.webp" data-lightbox-caption="Estética Dental">
+            <img src="/media/IMG_4895.webp" alt="Estética Dental" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
             <span class="absolute bottom-3 left-3 text-[0.55rem] tracking-widest uppercase text-cream/60">estética</span>
           </div>
         </div>
@@ -119,3 +123,37 @@ const destaques = [
     </div>
   </div>
 </section>
+
+<!-- Lightbox -->
+<div id="resultados-lightbox" class="fixed inset-0 z-[999] flex items-center justify-center hidden" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);">
+  <button id="lb-close" class="absolute top-5 right-6 text-white/70 hover:text-white text-3xl leading-none" aria-label="Fechar">&times;</button>
+  <img id="lb-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] object-contain" style="box-shadow: 0 8px 60px rgba(0,0,0,0.5);" />
+  <p id="lb-caption" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-[0.65rem] tracking-widest uppercase"></p>
+</div>
+
+<script>
+  const lb = document.getElementById('resultados-lightbox')!;
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const lbCaption = document.getElementById('lb-caption')!;
+
+  document.querySelectorAll('[data-lightbox]').forEach(el => {
+    el.addEventListener('click', () => {
+      const src = el.getAttribute('data-lightbox')!;
+      const caption = el.getAttribute('data-lightbox-caption') ?? '';
+      lbImg.src = src;
+      lbImg.alt = caption;
+      lbCaption.textContent = caption;
+      lb.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLb() {
+    lb.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lb-close')!.addEventListener('click', closeLb);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+</script>
